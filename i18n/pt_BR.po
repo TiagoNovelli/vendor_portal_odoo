@@ -5,9 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-21 00:00+0000\n"
-"PO-Revision-Date: 2026-04-21 00:00+0000\n"
+"POT-Creation-Date: 2026-04-22 00:45+0000\n"
+"PO-Revision-Date: 2026-04-22 00:45+0000\n"
 "Last-Translator: Codex\n"
 "Language-Team: Portuguese (Brazil)\n"
 "Language: pt_BR\n"
@@ -16,325 +15,310 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-msgid "Odoo Vendor Portal"
-msgstr "Portal de Fornecedores Odoo"
-
-msgid "Vendor Portal Management in Odoo"
-msgstr "Gestao do portal de fornecedores no Odoo"
-
-msgid ""
-"This module helps to sent quotations for a product \n"
-"    to multiple vendors and vendors can add their\n"
-"    price in their portal, and can choose best quotation for product"
-msgstr ""
-"Este modulo ajuda a enviar cotacoes de um produto para varios fornecedores, "
-"permitindo que eles informem seus precos no portal e que a empresa escolha "
-"a melhor proposta."
-
+#. module: vendor_portal_odoo
+#: model:ir.ui.menu,name:vendor_portal_odoo.vendor_portal_menu_root
 msgid "Vendor Portal"
 msgstr "Portal de Fornecedores"
 
+#. module: vendor_portal_odoo
+#: model:ir.ui.menu,name:vendor_portal_odoo.menu_vendor_quotations
+#: model:ir.ui.menu,name:vendor_portal_odoo.rfq_vendor_menu
+#: model:ir.actions.act_window,name:vendor_portal_odoo.vendor_rfq_action
 msgid "Vendor Quotations"
 msgstr "Cotacoes de Fornecedores"
 
+#. module: vendor_portal_odoo
+#: model:ir.ui.menu,name:vendor_portal_odoo.rfq_vendor_progress_menu
+#: model:ir.actions.act_window,name:vendor_portal_odoo.vendor_rfq__action_progress
 msgid "In Progress"
 msgstr "Em Andamento"
 
+#. module: vendor_portal_odoo
+#: model:ir.ui.menu,name:vendor_portal_odoo.rfq_vendor_done_menu
+#: model:ir.actions.act_window,name:vendor_portal_odoo.vendor_rfq_action_done
 msgid "Done"
 msgstr "Concluido"
 
+#. module: vendor_portal_odoo
+#: model:ir.ui.menu,name:vendor_portal_odoo.menu_vendors_root
+#: model:ir.ui.menu,name:vendor_portal_odoo.vendors_menu
 msgid "Vendors"
 msgstr "Fornecedores"
 
+#. module: vendor_portal_odoo
+#: model:ir.ui.menu,name:vendor_portal_odoo.res_partner_registered_vendors_menu
+#: model:ir.actions.act_window,name:vendor_portal_odoo.res_partner_action_supplier_registered
 msgid "Registered Vendors"
 msgstr "Fornecedores Registrados"
 
+#. module: vendor_portal_odoo
+#: model:ir.ui.menu,name:vendor_portal_odoo.menu_orders_root
 msgid "Orders"
 msgstr "Pedidos"
 
+#. module: vendor_portal_odoo
+#: model:ir.ui.menu,name:vendor_portal_odoo.purchase_order_vendor_quotation_menu
+#: model:ir.actions.act_window,name:vendor_portal_odoo.action_vendor_request_for_quotation
 msgid "Request for Quotation"
 msgstr "Solicitacao de Cotacao"
 
+#. module: vendor_portal_odoo
+#: model:ir.ui.menu,name:vendor_portal_odoo.purchase_order_vendor_menu
 msgid "Purchase Orders"
 msgstr "Pedidos de Compra"
 
+#. module: vendor_portal_odoo
+#: model:ir.ui.menu,name:vendor_portal_odoo.configuration_vendor_portal_menu
 msgid "Configuration"
 msgstr "Configuracao"
 
+#. module: vendor_portal_odoo
+#: model:ir.ui.menu,name:vendor_portal_odoo.settings_vendor_portal_menu
+#: model:ir.actions.act_window,name:vendor_portal_odoo.res_config_settings_action_vendor_portal
 msgid "Settings"
 msgstr "Configuracoes"
 
-msgid "RFQ Reference"
-msgstr "Referencia da RFQ"
-
-msgid "Product"
-msgstr "Produto"
-
-msgid "Quantity"
-msgstr "Quantidade"
-
-msgid "UoM"
-msgstr "UdM"
-
-msgid "Estimated Quote"
-msgstr "Cotacao Estimada"
-
-msgid "Currency"
-msgstr "Moeda"
-
-msgid "Notes"
-msgstr "Observacoes"
-
-msgid "Delivery date"
-msgstr "Data de entrega"
-
-msgid "Quote Date "
-msgstr "Data da Cotacao "
-
-msgid "Closing date"
-msgstr "Data de encerramento"
-
-msgid "Vendor Quote History"
-msgstr "Historico de Cotacoes do Fornecedor"
-
-msgid "Responsible"
-msgstr "Responsavel"
-
-msgid "Approved Vendor"
-msgstr "Fornecedor Aprovado"
-
-msgid "Order ID"
-msgstr "Pedido"
-
-msgid "Status"
-msgstr "Status"
-
-msgid "Company"
-msgstr "Empresa"
-
-msgid "Draft"
-msgstr "Rascunho"
-
-msgid "Pending"
-msgstr "Pendente"
-
-msgid "Cancelled"
-msgstr "Cancelado"
-
-msgid "Purchase Order"
-msgstr "Pedido de Compra"
-
-msgid "Name"
-msgstr "Nome"
-
-msgid "Vendor"
-msgstr "Fornecedor"
-
-msgid "Quoted Price"
-msgstr "Preco Cotado"
-
-msgid "Estimate date"
-msgstr "Data Estimada"
-
-msgid "Note"
-msgstr "Observacao"
-
-msgid "Quote ID"
-msgstr "RFQ"
-
-msgid "Is Registered Vendor"
-msgstr "Fornecedor Registrado"
-
-msgid "Set RFQs Based on"
-msgstr "Definir RFQs com base em"
-
-msgid "Minimum Quoted Price"
-msgstr "Menor Preco Cotado"
-
-msgid "Minimum Delivery time"
-msgstr "Menor Prazo de Entrega"
-
-msgid "Quote Submission"
-msgstr "Envio da Cotacao"
-
-msgid "Quote Acceptance"
-msgstr "Aprovacao da Cotacao"
-
-msgid "Quote not Accepted"
-msgstr "Cotacao Nao Aprovada"
-
-msgid "Quote Cancelled"
-msgstr "Cotacao Cancelada"
-
-msgid "PO created for the RFQ"
-msgstr "Pedido de compra criado para a RFQ"
-
+#. module: vendor_portal_odoo
+#: model_terms:ir.ui.view,arch_db:vendor_portal_odoo.vendor_rfq_view_form
+#: model_terms:ir.ui.view,arch_db:vendor_portal_odoo.res_config_settings_view_form
 msgid "Vendor RFQ"
 msgstr "RFQ de Fornecedor"
 
-msgid "Set RFQs as done based on:"
-msgstr "Marcar RFQs como concluidas com base em:"
-
-msgid "Vendor RFQs Status Message"
-msgstr "Mensagens de Status das RFQs de Fornecedor"
-
-msgid "Message to be displayed based on the status of Vendor\n                        RFQ"
-msgstr "Mensagem exibida conforme o status da RFQ do fornecedor"
-
-msgid "Quote not Accepted Template"
-msgstr "Modelo de Cotacao Nao Aprovada"
-
-msgid "PO Created for the RFQ"
-msgstr "Pedido de Compra Criado para a RFQ"
-
-msgid "RFQ Cancelled Template"
-msgstr "Modelo de RFQ Cancelada"
-
-msgid "Vendor Portal Account"
-msgstr "Conta do Portal do Fornecedor"
-
-msgid ""
-"An account is already registered for this vendor,\n"
-"                    vendor will receive a Password reset instruction."
-msgstr ""
-"Ja existe uma conta registrada para este fornecedor.\n"
-"Ele recebera uma instrucao de redefinicao de senha."
-
-msgid ""
-"A portal user is created for this vendor,\n"
-"                    vendor will receive a Signup Invitation."
-msgstr ""
-"Um usuario de portal sera criado para este fornecedor.\n"
-"Ele recebera um convite de cadastro."
-
-msgid "Send Vendor Login/Signup Invitation "
-msgstr "Enviar Convite de Login/Cadastro ao Fornecedor "
-
-msgid "Send Reset Password Instruction"
-msgstr "Enviar Instrucao de Redefinicao de Senha"
-
-msgid "Cancel"
-msgstr "Cancelar"
-
-msgid "Mark as Done"
-msgstr "Marcar como Concluido"
-
-msgid "Portal layout My RFQs"
-msgstr "Layout do portal Minhas RFQs"
-
-msgid "Show Vendor RFQs"
-msgstr "Mostrar RFQs de Fornecedor"
-
-msgid "Portal my RFQ"
-msgstr "Minhas RFQs no Portal"
-
-msgid "RFQ's"
-msgstr "RFQs"
-
-msgid "Reference#"
-msgstr "Referencia#"
-
-msgid "Quotation Date"
-msgstr "Data da Cotacao"
-
-msgid "Quote Your Details"
-msgstr "Informe sua Cotacao"
-
-msgid "Price"
-msgstr "Preco"
-
-msgid "Additional\n                                                    Note"
-msgstr "Observacao Adicional"
-
-msgid "Quote"
-msgstr "Cotacao"
-
-msgid "Estimated Delivery Date:"
-msgstr "Data Estimada de Entrega:"
-
-msgid "My Quoted Price :"
-msgstr "Meu Preco Cotado:"
-
-msgid "My Estimate Delivery Date :"
-msgstr "Minha Previsao de Entrega:"
-
-msgid "My Note:"
-msgstr "Minha Observacao:"
-
-msgid "Current stage of this task"
-msgstr "Etapa atual desta atividade"
-
+#. module: vendor_portal_odoo
+#: model_terms:ir.ui.view,arch_db:vendor_portal_odoo.vendor_rfq_view_form
 msgid "Send Invitation Mail"
 msgstr "Enviar Convite por E-mail"
 
+#. module: vendor_portal_odoo
+#: model_terms:ir.ui.view,arch_db:vendor_portal_odoo.vendor_rfq_view_form
 msgid "Set to Pending"
 msgstr "Definir como Pendente"
 
+#. module: vendor_portal_odoo
+#: model_terms:ir.ui.view,arch_db:vendor_portal_odoo.vendor_rfq_view_form
+#: model_terms:ir.ui.view,arch_db:vendor_portal_odoo.rfq_done_view_form
+#: model:ir.actions.act_window,name:vendor_portal_odoo.rfq_done_action
+msgid "Mark as Done"
+msgstr "Marcar como Concluido"
+
+#. module: vendor_portal_odoo
+#: model_terms:ir.ui.view,arch_db:vendor_portal_odoo.vendor_rfq_view_form
+#: model_terms:ir.ui.view,arch_db:vendor_portal_odoo.register_vendor_view_form
+#: model_terms:ir.ui.view,arch_db:vendor_portal_odoo.rfq_done_view_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: vendor_portal_odoo
+#: model_terms:ir.ui.view,arch_db:vendor_portal_odoo.vendor_rfq_view_form
 msgid "Create RFQ"
 msgstr "Criar RFQ"
 
+#. module: vendor_portal_odoo
+#: model_terms:ir.ui.view,arch_db:vendor_portal_odoo.vendor_rfq_view_form
+#: model:ir.actions.act_window,name:vendor_portal_odoo.action_vendor_purchase_orders
+msgid "Purchase Order"
+msgstr "Pedido de Compra"
+
+#. module: vendor_portal_odoo
+#: model_terms:ir.ui.view,arch_db:vendor_portal_odoo.vendor_rfq_view_form
 msgid "Vendor Quote Details"
 msgstr "Detalhes das Cotacoes dos Fornecedores"
 
-msgid "Create new vendor quotations"
-msgstr "Criar novas cotacoes de fornecedores"
+#. module: vendor_portal_odoo
+#: model_terms:ir.ui.view,arch_db:vendor_portal_odoo.portal_my_home_vendor_rfq
+#: model_terms:ir.ui.view,arch_db:vendor_portal_odoo.portal_my_home_menu_vendor_rfq
+#: model_terms:ir.ui.view,arch_db:vendor_portal_odoo.portal_my_vendor_rfq
+msgid "RFQs"
+msgstr "RFQs"
 
-msgid "Create a new Request for quotation"
-msgstr "Criar uma nova solicitacao de cotacao"
+#. module: vendor_portal_odoo
+#: model_terms:ir.ui.view,arch_db:vendor_portal_odoo.portal_my_home_vendor_rfq
+msgid "RFQ's"
+msgstr "RFQs"
 
-msgid "Create a new Purchase order"
-msgstr "Criar um novo pedido de compra"
+#. module: vendor_portal_odoo
+#: model_terms:ir.ui.view,arch_db:vendor_portal_odoo.portal_my_rfq
+msgid "Reference#"
+msgstr "Referencia#"
 
-msgid "All"
-msgstr "Todos"
+#. module: vendor_portal_odoo
+#: model_terms:ir.ui.view,arch_db:vendor_portal_odoo.portal_my_rfq
+msgid "Product"
+msgstr "Produto"
 
-msgid "Newest"
-msgstr "Mais Recentes"
+#. module: vendor_portal_odoo
+#: model_terms:ir.ui.view,arch_db:vendor_portal_odoo.portal_my_rfq
+#: model_terms:ir.ui.view,arch_db:vendor_portal_odoo.portal_my_vendor_rfq
+msgid "Quantity"
+msgstr "Quantidade"
 
+#. module: vendor_portal_odoo
+#: model_terms:ir.ui.view,arch_db:vendor_portal_odoo.portal_my_rfq
+msgid "Status"
+msgstr "Status"
+
+#. module: vendor_portal_odoo
+#: model_terms:ir.ui.view,arch_db:vendor_portal_odoo.portal_my_rfq
+msgid "Quotation Date"
+msgstr "Data da Cotacao"
+
+#. module: vendor_portal_odoo
+#: model_terms:ir.ui.view,arch_db:vendor_portal_odoo.portal_my_rfq
+msgid "Closing Date"
+msgstr "Data de Encerramento"
+
+#. module: vendor_portal_odoo
+#: model_terms:ir.ui.view,arch_db:vendor_portal_odoo.portal_my_vendor_rfq
+msgid "Quote Your Details"
+msgstr "Informe sua Cotacao"
+
+#. module: vendor_portal_odoo
+#: model_terms:ir.ui.view,arch_db:vendor_portal_odoo.portal_my_vendor_rfq
+msgid "Price"
+msgstr "Preco"
+
+#. module: vendor_portal_odoo
+#: model_terms:ir.ui.view,arch_db:vendor_portal_odoo.portal_my_vendor_rfq
+msgid "Delivery Date"
+msgstr "Data de Entrega"
+
+#. module: vendor_portal_odoo
+#: model_terms:ir.ui.view,arch_db:vendor_portal_odoo.portal_my_vendor_rfq
+msgid "Additional Note"
+msgstr "Observacao Adicional"
+
+#. module: vendor_portal_odoo
+#: model_terms:ir.ui.view,arch_db:vendor_portal_odoo.portal_my_vendor_rfq
+msgid "Quote"
+msgstr "Cotacao"
+
+#. module: vendor_portal_odoo
+#: model_terms:ir.ui.view,arch_db:vendor_portal_odoo.portal_my_vendor_rfq
+msgid "Product:"
+msgstr "Produto:"
+
+#. module: vendor_portal_odoo
+#: model_terms:ir.ui.view,arch_db:vendor_portal_odoo.portal_my_vendor_rfq
+msgid "Quote Date:"
+msgstr "Data da Cotacao:"
+
+#. module: vendor_portal_odoo
+#: model_terms:ir.ui.view,arch_db:vendor_portal_odoo.portal_my_vendor_rfq
+msgid "Estimated Quote:"
+msgstr "Cotacao Estimada:"
+
+#. module: vendor_portal_odoo
+#: model_terms:ir.ui.view,arch_db:vendor_portal_odoo.portal_my_vendor_rfq
+msgid "Estimated Delivery Date:"
+msgstr "Data Estimada de Entrega:"
+
+#. module: vendor_portal_odoo
+#: model_terms:ir.ui.view,arch_db:vendor_portal_odoo.portal_my_vendor_rfq
+msgid "Note :"
+msgstr "Observacao:"
+
+#. module: vendor_portal_odoo
+#: model_terms:ir.ui.view,arch_db:vendor_portal_odoo.portal_my_vendor_rfq
+msgid "Quantity:"
+msgstr "Quantidade:"
+
+#. module: vendor_portal_odoo
+#: model_terms:ir.ui.view,arch_db:vendor_portal_odoo.portal_my_vendor_rfq
+msgid "Closing Date:"
+msgstr "Data de Encerramento:"
+
+#. module: vendor_portal_odoo
+#: model_terms:ir.ui.view,arch_db:vendor_portal_odoo.portal_my_vendor_rfq
+msgid "My Quoted Price :"
+msgstr "Meu Preco Cotado:"
+
+#. module: vendor_portal_odoo
+#: model_terms:ir.ui.view,arch_db:vendor_portal_odoo.portal_my_vendor_rfq
+msgid "My Estimate Delivery Date :"
+msgstr "Minha Previsao de Entrega:"
+
+#. module: vendor_portal_odoo
+#: model_terms:ir.ui.view,arch_db:vendor_portal_odoo.portal_my_vendor_rfq
+msgid "My Note:"
+msgstr "Minha Observacao:"
+
+#. module: vendor_portal_odoo
+#: model_terms:ir.ui.view,arch_db:vendor_portal_odoo.res_config_settings_view_form
+msgid "Set RFQs as done based on:"
+msgstr "Marcar RFQs como concluidas com base em:"
+
+#. module: vendor_portal_odoo
+#: model_terms:ir.ui.view,arch_db:vendor_portal_odoo.res_config_settings_view_form
+msgid "Vendor RFQs Status Message"
+msgstr "Mensagens de Status das RFQs de Fornecedor"
+
+#. module: vendor_portal_odoo
+#: model_terms:ir.ui.view,arch_db:vendor_portal_odoo.register_vendor_view_form
+#: model:ir.actions.act_window,name:vendor_portal_odoo.register_vendor_action
+msgid "Vendor Portal Account"
+msgstr "Conta do Portal do Fornecedor"
+
+#. module: vendor_portal_odoo
+#: model_terms:ir.ui.view,arch_db:vendor_portal_odoo.register_vendor_view_form
+msgid "Send Reset Password Instruction"
+msgstr "Enviar Instrucao de Redefinicao de Senha"
+
+#. module: vendor_portal_odoo
+#: code:addons/vendor_portal_odoo/controllers/vendor_portal_odoo.py:0
 msgid "The requested RFQ does not exist."
 msgstr "A RFQ solicitada nao existe."
 
+#. module: vendor_portal_odoo
+#: code:addons/vendor_portal_odoo/controllers/vendor_portal_odoo.py:0
 msgid "You do not have access to this RFQ."
 msgstr "Voce nao tem acesso a esta RFQ."
 
+#. module: vendor_portal_odoo
+#: code:addons/vendor_portal_odoo/controllers/vendor_portal_odoo.py:0
 msgid "Enter a valid quotation value."
 msgstr "Informe um valor de cotacao valido."
 
+#. module: vendor_portal_odoo
+#: code:addons/vendor_portal_odoo/controllers/vendor_portal_odoo.py:0
 msgid "The quotation value must be greater than zero."
 msgstr "O valor da cotacao deve ser maior que zero."
 
+#. module: vendor_portal_odoo
+#: code:addons/vendor_portal_odoo/controllers/vendor_portal_odoo.py:0
 msgid "Enter an estimated delivery date."
 msgstr "Informe uma data estimada de entrega."
 
+#. module: vendor_portal_odoo
+#: code:addons/vendor_portal_odoo/controllers/vendor_portal_odoo.py:0
 msgid "This RFQ is not accepting quotations anymore."
 msgstr "Esta RFQ nao esta mais aceitando cotacoes."
 
+#. module: vendor_portal_odoo
+#: code:addons/vendor_portal_odoo/controllers/vendor_portal_odoo.py:0
 msgid "The quotation deadline has already passed."
 msgstr "O prazo para envio da cotacao ja terminou."
 
+#. module: vendor_portal_odoo
+#: code:addons/vendor_portal_odoo/models/vendor_quote_history.py:0
 msgid "A vendor can submit only one quotation per RFQ."
 msgstr "Um fornecedor pode enviar apenas uma cotacao por RFQ."
 
+#. module: vendor_portal_odoo
+#: code:addons/vendor_portal_odoo/models/vendor_rfq.py:0
 msgid "Add at least one registered vendor."
 msgstr "Adicione pelo menos um fornecedor registrado."
 
+#. module: vendor_portal_odoo
+#: code:addons/vendor_portal_odoo/models/vendor_rfq.py:0
 msgid "Select an approved vendor before creating the RFQ."
 msgstr "Selecione um fornecedor aprovado antes de criar a RFQ."
 
+#. module: vendor_portal_odoo
+#: code:addons/vendor_portal_odoo/models/vendor_rfq.py:0
 msgid "The approved vendor has no submitted quotation for this RFQ."
 msgstr "O fornecedor aprovado nao possui cotacao enviada para esta RFQ."
 
+#. module: vendor_portal_odoo
+#: code:addons/vendor_portal_odoo/wizard/rfq_done.py:0
 msgid "Select a quotation that belongs to the current RFQ."
 msgstr "Selecione uma cotacao que pertenca a RFQ atual."
-
-msgid "Set RFQs as Done"
-msgstr "Marcar RFQs como Concluidas"
-
-msgid "Provide Email For Vendor"
-msgstr "Informe um e-mail para o fornecedor"
-
-msgid "Make Portal User"
-msgstr "Criar Usuario de Portal"
-
-msgid "Registered"
-msgstr "Registrado"
