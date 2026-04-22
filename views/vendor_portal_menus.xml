@@ -4,7 +4,7 @@
     <menuitem
             id="vendor_portal_menu_root"
             name="Vendor Portal"
-            groups="base.group_user"
+            groups="purchase.group_purchase_user"
             web_icon="vendor_portal_odoo,static/description/icon.png"
             sequence="185"/>
 <!--        Vendor Quotations Menu-->

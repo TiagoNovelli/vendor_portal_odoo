@@ -19,7 +19,9 @@
 #    If not, see <http://www.gnu.org/licenses/>.
 #
 #############################################################################
+from datetime import date
 from odoo import api, fields, models, _
+from odoo.exceptions import ValidationError
 
 
 class VendorRFQ(models.Model):
@@ -45,7 +47,7 @@ class VendorRFQ(models.Model):
     notes = fields.Html(string='Notes', help="Additional Note")
     estimated_delivery_date = fields.Date(string="Delivery date",
                                           help="Vendor's delivery date")
-    quote_date = fields.Date(default=fields.Datetime.now(), help="Quote Date ")
+    quote_date = fields.Date(default=fields.Date.today, help="Quote Date ")
     closing_date = fields.Date(string="Closing date",
                                help="Quotation closing date")
     vendor_ids = fields.Many2many('res.partner',
@@ -86,6 +88,9 @@ class VendorRFQ(models.Model):
         field, using a predefined email template. The template is personalized
         with the vendor's name and language. The email is sent from the current
         user's email address."""
+        self.ensure_one()
+        if not self.vendor_ids:
+            raise ValidationError(_("Add at least one registered vendor."))
         template = self.env.ref(
             'vendor_portal_odoo.email_template_vendor_rfq_request').id
         for vendor in self.vendor_ids:
@@ -124,9 +129,14 @@ class VendorRFQ(models.Model):
 
     def action_create_quotation(self):
         """For creating purchase RFQ from vendor quotations"""
+        self.ensure_one()
+        if not self.approved_vendor_id:
+            raise ValidationError(_("Select an approved vendor before creating the RFQ."))
         rfq_quote = self.env['vendor.quote.history'].search([
             ('vendor_id', '=', self.approved_vendor_id.id),
-            ('quote_id', '=', self.id)])
+            ('quote_id', '=', self.id)], limit=1)
+        if not rfq_quote:
+            raise ValidationError(_("The approved vendor has no submitted quotation for this RFQ."))
         price = rfq_quote.quoted_price
         order = self.env['purchase.order'].sudo().create({
             'partner_id': self.approved_vendor_id.id,
@@ -164,10 +174,12 @@ class VendorRFQ(models.Model):
             rfq_done_based_on = self.env['ir.config_parameter'].get_param(
                 'vendor_portal_odoo.rfq_done_based_on')
             for rec in quotes:
-                order = 'quoted_price asc' if rfq_done_based_on == 'based_on_price' else 'estimate_date asc'
-                vendor_quotes = rec.vendor_quote_history_ids.search([],
-                                                                    limit=1,
-                                                                    order=order)
+                vendor_quotes = rec.vendor_quote_history_ids.sorted(
+                    key=lambda quote: (
+                        quote.quoted_price if rfq_done_based_on == 'based_on_price'
+                        else (quote.estimate_date or date.max)
+                    )
+                )[:1]
                 rec.write({
                     'approved_vendor_id': vendor_quotes.vendor_id.id,
                     'state': 'done'

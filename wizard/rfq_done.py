@@ -19,7 +19,8 @@
 #    If not, see <http://www.gnu.org/licenses/>.
 #
 #############################################################################
-from odoo import fields, models
+from odoo import _, fields, models
+from odoo.exceptions import ValidationError
 
 
 class RfqDone(models.TransientModel):
@@ -50,6 +51,10 @@ class RfqDone(models.TransientModel):
     def action_done(self):
         """Marking the RFQ as done"""
         rfq = self.env['vendor.rfq'].browse(self._context.get('active_id'))
+        if self.vendor_id not in self.quote_ids or self.vendor_id.quote_id != rfq:
+            raise ValidationError(
+                _("Select a quotation that belongs to the current RFQ.")
+            )
         template_id = self.env.ref(
             'vendor_portal_odoo.email_template_vendor_rfq_mark_done').id
         context = {

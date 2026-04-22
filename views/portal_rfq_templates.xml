@@ -7,7 +7,7 @@
         <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
             <li t-if="page_name == 'vendor_rfq'"
                 t-attf-class="breadcrumb-item #{'active ' if not vendor_rfq else ''}">
-                <a t-if="vendor_my_rfq"
+                <a t-if="vendor_rfq"
                    t-attf-href="/my/vendor_rfqs?{{ keep_query() }}">RFQs
                 </a>
                 <t t-else="">
@@ -151,15 +151,6 @@
                                           title="Current stage of this task"/>
                                 </div>
             </div>
-                    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-                            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-                            crossorigin="anonymous"/>
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
-                            integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
-                            crossorigin="anonymous"/>
-                    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
-                            integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
-                            crossorigin="anonymous"/>
                     <div class="modal se-modal" id="addQuoteModal"
                          tabindex="-1" role="dialog"
                          aria-labelledby="addTagLabel" aria-hidden="true">
@@ -261,7 +252,7 @@
                             <div t-if="vendor_rfq.notes">
                                 <strong>Note :</strong>
                                 <br/>
-                                <span t-field="rfqObj.notes"/>
+                                <span t-field="vendor_rfq.notes"/>
                             </div>
                         </div>
                         <div class="col-lg-6">

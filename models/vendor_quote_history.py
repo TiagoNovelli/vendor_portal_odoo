@@ -27,6 +27,13 @@ class VendorQuoteHistory(models.Model):
     _name = 'vendor.quote.history'
     _description = "Vendor Quotation History"
     _rec_name = 'vendor_id'
+    _sql_constraints = [
+        (
+            'vendor_quote_unique',
+            'unique(vendor_id, quote_id)',
+            'A vendor can submit only one quotation per RFQ.'
+        ),
+    ]
 
     vendor_id = fields.Many2one('res.partner',
                                 domain="[('is_registered', '=', True)]",

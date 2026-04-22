@@ -1,0 +1,340 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#  * vendor_portal_odoo
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-21 00:00+0000\n"
+"PO-Revision-Date: 2026-04-21 00:00+0000\n"
+"Last-Translator: Codex\n"
+"Language-Team: Portuguese (Brazil)\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "Odoo Vendor Portal"
+msgstr "Portal de Fornecedores Odoo"
+
+msgid "Vendor Portal Management in Odoo"
+msgstr "Gestao do portal de fornecedores no Odoo"
+
+msgid ""
+"This module helps to sent quotations for a product \n"
+"    to multiple vendors and vendors can add their\n"
+"    price in their portal, and can choose best quotation for product"
+msgstr ""
+"Este modulo ajuda a enviar cotacoes de um produto para varios fornecedores, "
+"permitindo que eles informem seus precos no portal e que a empresa escolha "
+"a melhor proposta."
+
+msgid "Vendor Portal"
+msgstr "Portal de Fornecedores"
+
+msgid "Vendor Quotations"
+msgstr "Cotacoes de Fornecedores"
+
+msgid "In Progress"
+msgstr "Em Andamento"
+
+msgid "Done"
+msgstr "Concluido"
+
+msgid "Vendors"
+msgstr "Fornecedores"
+
+msgid "Registered Vendors"
+msgstr "Fornecedores Registrados"
+
+msgid "Orders"
+msgstr "Pedidos"
+
+msgid "Request for Quotation"
+msgstr "Solicitacao de Cotacao"
+
+msgid "Purchase Orders"
+msgstr "Pedidos de Compra"
+
+msgid "Configuration"
+msgstr "Configuracao"
+
+msgid "Settings"
+msgstr "Configuracoes"
+
+msgid "RFQ Reference"
+msgstr "Referencia da RFQ"
+
+msgid "Product"
+msgstr "Produto"
+
+msgid "Quantity"
+msgstr "Quantidade"
+
+msgid "UoM"
+msgstr "UdM"
+
+msgid "Estimated Quote"
+msgstr "Cotacao Estimada"
+
+msgid "Currency"
+msgstr "Moeda"
+
+msgid "Notes"
+msgstr "Observacoes"
+
+msgid "Delivery date"
+msgstr "Data de entrega"
+
+msgid "Quote Date "
+msgstr "Data da Cotacao "
+
+msgid "Closing date"
+msgstr "Data de encerramento"
+
+msgid "Vendor Quote History"
+msgstr "Historico de Cotacoes do Fornecedor"
+
+msgid "Responsible"
+msgstr "Responsavel"
+
+msgid "Approved Vendor"
+msgstr "Fornecedor Aprovado"
+
+msgid "Order ID"
+msgstr "Pedido"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Company"
+msgstr "Empresa"
+
+msgid "Draft"
+msgstr "Rascunho"
+
+msgid "Pending"
+msgstr "Pendente"
+
+msgid "Cancelled"
+msgstr "Cancelado"
+
+msgid "Purchase Order"
+msgstr "Pedido de Compra"
+
+msgid "Name"
+msgstr "Nome"
+
+msgid "Vendor"
+msgstr "Fornecedor"
+
+msgid "Quoted Price"
+msgstr "Preco Cotado"
+
+msgid "Estimate date"
+msgstr "Data Estimada"
+
+msgid "Note"
+msgstr "Observacao"
+
+msgid "Quote ID"
+msgstr "RFQ"
+
+msgid "Is Registered Vendor"
+msgstr "Fornecedor Registrado"
+
+msgid "Set RFQs Based on"
+msgstr "Definir RFQs com base em"
+
+msgid "Minimum Quoted Price"
+msgstr "Menor Preco Cotado"
+
+msgid "Minimum Delivery time"
+msgstr "Menor Prazo de Entrega"
+
+msgid "Quote Submission"
+msgstr "Envio da Cotacao"
+
+msgid "Quote Acceptance"
+msgstr "Aprovacao da Cotacao"
+
+msgid "Quote not Accepted"
+msgstr "Cotacao Nao Aprovada"
+
+msgid "Quote Cancelled"
+msgstr "Cotacao Cancelada"
+
+msgid "PO created for the RFQ"
+msgstr "Pedido de compra criado para a RFQ"
+
+msgid "Vendor RFQ"
+msgstr "RFQ de Fornecedor"
+
+msgid "Set RFQs as done based on:"
+msgstr "Marcar RFQs como concluidas com base em:"
+
+msgid "Vendor RFQs Status Message"
+msgstr "Mensagens de Status das RFQs de Fornecedor"
+
+msgid "Message to be displayed based on the status of Vendor\n                        RFQ"
+msgstr "Mensagem exibida conforme o status da RFQ do fornecedor"
+
+msgid "Quote not Accepted Template"
+msgstr "Modelo de Cotacao Nao Aprovada"
+
+msgid "PO Created for the RFQ"
+msgstr "Pedido de Compra Criado para a RFQ"
+
+msgid "RFQ Cancelled Template"
+msgstr "Modelo de RFQ Cancelada"
+
+msgid "Vendor Portal Account"
+msgstr "Conta do Portal do Fornecedor"
+
+msgid ""
+"An account is already registered for this vendor,\n"
+"                    vendor will receive a Password reset instruction."
+msgstr ""
+"Ja existe uma conta registrada para este fornecedor.\n"
+"Ele recebera uma instrucao de redefinicao de senha."
+
+msgid ""
+"A portal user is created for this vendor,\n"
+"                    vendor will receive a Signup Invitation."
+msgstr ""
+"Um usuario de portal sera criado para este fornecedor.\n"
+"Ele recebera um convite de cadastro."
+
+msgid "Send Vendor Login/Signup Invitation "
+msgstr "Enviar Convite de Login/Cadastro ao Fornecedor "
+
+msgid "Send Reset Password Instruction"
+msgstr "Enviar Instrucao de Redefinicao de Senha"
+
+msgid "Cancel"
+msgstr "Cancelar"
+
+msgid "Mark as Done"
+msgstr "Marcar como Concluido"
+
+msgid "Portal layout My RFQs"
+msgstr "Layout do portal Minhas RFQs"
+
+msgid "Show Vendor RFQs"
+msgstr "Mostrar RFQs de Fornecedor"
+
+msgid "Portal my RFQ"
+msgstr "Minhas RFQs no Portal"
+
+msgid "RFQ's"
+msgstr "RFQs"
+
+msgid "Reference#"
+msgstr "Referencia#"
+
+msgid "Quotation Date"
+msgstr "Data da Cotacao"
+
+msgid "Quote Your Details"
+msgstr "Informe sua Cotacao"
+
+msgid "Price"
+msgstr "Preco"
+
+msgid "Additional\n                                                    Note"
+msgstr "Observacao Adicional"
+
+msgid "Quote"
+msgstr "Cotacao"
+
+msgid "Estimated Delivery Date:"
+msgstr "Data Estimada de Entrega:"
+
+msgid "My Quoted Price :"
+msgstr "Meu Preco Cotado:"
+
+msgid "My Estimate Delivery Date :"
+msgstr "Minha Previsao de Entrega:"
+
+msgid "My Note:"
+msgstr "Minha Observacao:"
+
+msgid "Current stage of this task"
+msgstr "Etapa atual desta atividade"
+
+msgid "Send Invitation Mail"
+msgstr "Enviar Convite por E-mail"
+
+msgid "Set to Pending"
+msgstr "Definir como Pendente"
+
+msgid "Create RFQ"
+msgstr "Criar RFQ"
+
+msgid "Vendor Quote Details"
+msgstr "Detalhes das Cotacoes dos Fornecedores"
+
+msgid "Create new vendor quotations"
+msgstr "Criar novas cotacoes de fornecedores"
+
+msgid "Create a new Request for quotation"
+msgstr "Criar uma nova solicitacao de cotacao"
+
+msgid "Create a new Purchase order"
+msgstr "Criar um novo pedido de compra"
+
+msgid "All"
+msgstr "Todos"
+
+msgid "Newest"
+msgstr "Mais Recentes"
+
+msgid "The requested RFQ does not exist."
+msgstr "A RFQ solicitada nao existe."
+
+msgid "You do not have access to this RFQ."
+msgstr "Voce nao tem acesso a esta RFQ."
+
+msgid "Enter a valid quotation value."
+msgstr "Informe um valor de cotacao valido."
+
+msgid "The quotation value must be greater than zero."
+msgstr "O valor da cotacao deve ser maior que zero."
+
+msgid "Enter an estimated delivery date."
+msgstr "Informe uma data estimada de entrega."
+
+msgid "This RFQ is not accepting quotations anymore."
+msgstr "Esta RFQ nao esta mais aceitando cotacoes."
+
+msgid "The quotation deadline has already passed."
+msgstr "O prazo para envio da cotacao ja terminou."
+
+msgid "A vendor can submit only one quotation per RFQ."
+msgstr "Um fornecedor pode enviar apenas uma cotacao por RFQ."
+
+msgid "Add at least one registered vendor."
+msgstr "Adicione pelo menos um fornecedor registrado."
+
+msgid "Select an approved vendor before creating the RFQ."
+msgstr "Selecione um fornecedor aprovado antes de criar a RFQ."
+
+msgid "The approved vendor has no submitted quotation for this RFQ."
+msgstr "O fornecedor aprovado nao possui cotacao enviada para esta RFQ."
+
+msgid "Select a quotation that belongs to the current RFQ."
+msgstr "Selecione uma cotacao que pertenca a RFQ atual."
+
+msgid "Set RFQs as Done"
+msgstr "Marcar RFQs como Concluidas"
+
+msgid "Provide Email For Vendor"
+msgstr "Informe um e-mail para o fornecedor"
+
+msgid "Make Portal User"
+msgstr "Criar Usuario de Portal"
+
+msgid "Registered"
+msgstr "Registrado"

@@ -21,21 +21,37 @@
 #############################################################################
 from collections import OrderedDict
 from odoo import http, _
+from odoo.exceptions import AccessError, ValidationError
 from odoo.http import request
 from odoo.addons.portal.controllers.portal import pager as portal_pager, \
     CustomerPortal
 
 
 class RFQCustomerPortal(CustomerPortal):
+    def _get_vendor_portal_domain(self):
+        """Return the domain for RFQs visible to the current portal vendor."""
+        partner = request.env.user.partner_id
+        return [
+            ('vendor_ids', 'in', partner.ids),
+            ('state', 'not in', ['draft']),
+        ]
+
+    def _get_vendor_rfq_record(self, rfq_id):
+        """Return a RFQ only when it belongs to the logged in vendor."""
+        rfq = request.env['vendor.rfq'].sudo().browse(rfq_id)
+        if not rfq.exists():
+            raise AccessError(_("The requested RFQ does not exist."))
+        partner = request.env.user.partner_id
+        if partner not in rfq.vendor_ids:
+            raise AccessError(_("You do not have access to this RFQ."))
+        return rfq
 
     def _prepare_home_portal_values(self, counter):
         """Retrieves and prepares the values to be displayed on the home portal
         for the user."""
         values = super()._prepare_home_portal_values(counter)
-        partner_id = request.env.user.partner_id
         values['my_rfq_count'] = request.env['vendor.rfq'].sudo().search_count(
-            [('vendor_ids', 'in', partner_id.ids),
-             ('state', 'not in', ['draft'])])
+            self._get_vendor_portal_domain())
         return values
 
     def _rfq_get_page_view_values(self, vendor_rfq, access_token, **kwargs):
@@ -48,7 +64,7 @@ class RFQCustomerPortal(CustomerPortal):
                                           'my_rfq_history', False, **kwargs)
 
     @http.route(['/my/vendor_rfqs', '/my/vendor_rfqs/page/<int:page>'],
-                type='http', auth="public", website=True)
+                type='http', auth="user", website=True)
     def portal_my_vendor_rfqs(self, page=1, date_begin=None,
                               date_end=None, sortby=None, filterby=None, **kw):
         """ Displays the portal page for vendor RFQs (Request for Quotations)
@@ -56,11 +72,8 @@ class RFQCustomerPortal(CustomerPortal):
         vendor RFQs in the portal with various filtering, sorting, and
         pagination options."""
         values = self._prepare_portal_layout_values()
-        user_partner = request.env.user.partner_id
-        vendor_rfq = request.env['vendor.rfq'].sudo().search([])
-        domain = [
-            ('vendor_ids', 'in', user_partner.ids),
-            ('state', 'not in', ['draft'])]
+        vendor_rfq = request.env['vendor.rfq'].sudo()
+        domain = list(self._get_vendor_portal_domain())
         if date_begin and date_end:
             domain += [('create_date', '>', date_begin),
                        ('create_date', '<=', date_end)]
@@ -70,7 +83,7 @@ class RFQCustomerPortal(CustomerPortal):
                      'order': 'create_date desc, id desc'},
             'name': {'label': _('Name'), 'order': 'name asc, id asc'},
         }
-        if not sortby:
+        if not sortby or sortby not in searchbar_sortings:
             sortby = 'name'
         order = searchbar_sortings[sortby]['order']
         searchbar_filters = {
@@ -82,7 +95,7 @@ class RFQCustomerPortal(CustomerPortal):
                             'domain': [('state', '=', 'in_progress')]},
         }
         # default filter by value
-        if not filterby:
+        if not filterby or filterby not in searchbar_filters:
             filterby = 'all'
         domain += searchbar_filters[filterby]['domain']
         rfq_unit_count = vendor_rfq.search_count(domain)
@@ -116,14 +129,15 @@ class RFQCustomerPortal(CustomerPortal):
             "vendor_portal_odoo.portal_my_rfq",
             values)
 
-    @http.route(['/my/vendor_rfq/<int:rfq_id>'], type='http', auth="public",
+    @http.route(['/my/vendor_rfq/<int:rfq_id>'], type='http', auth="user",
                 website=True)
     def portal_my_vendor_rfq(self, rfq_id, access_token=None, **kw):
         """ Displays the details of a specific vendor RFQ (Request for Quotation)
          for the logged-in user."""
-        rfq_details = request.env['vendor.rfq'].sudo().browse(int(rfq_id))
+        rfq_details = self._get_vendor_rfq_record(int(rfq_id))
         vendor_quote = rfq_details.vendor_quote_history_ids.filtered(
-            lambda x: x.vendor_id.id == request.env.user.partner_id.id)
+            lambda x: x.vendor_id.id == request.env.user.partner_id.id
+        )[:1]
         quoted_price = vendor_quote.quoted_price
         values = self._rfq_get_page_view_values(rfq_details, access_token, **kw)
         values['quoted_price'] = quoted_price
@@ -131,14 +145,40 @@ class RFQCustomerPortal(CustomerPortal):
         return request.render(
             "vendor_portal_odoo.portal_my_vendor_rfq", values)
 
-    @http.route(['/quote/details'], type='http', auth="public", website=True)
+    @http.route(['/quote/details'], type='http', auth="user", website=True,
+                methods=['POST'])
     def quote_details(self, **post):
         """Handle the submission of a vendor's quote details."""
-        request.env['vendor.quote.history'].sudo().create({
+        try:
+            rfq_id = int(post.get('rfq_id'))
+            quoted_price = float(post.get('price'))
+        except (TypeError, ValueError):
+            raise ValidationError(_("Enter a valid quotation value."))
+        if quoted_price <= 0:
+            raise ValidationError(_("The quotation value must be greater than zero."))
+        if not post.get('delivery_date'):
+            raise ValidationError(_("Enter an estimated delivery date."))
+        rfq = self._get_vendor_rfq_record(rfq_id)
+        today = request.env.context_today(request.env.user)
+        if rfq.state != 'in_progress':
+            raise ValidationError(
+                _("This RFQ is not accepting quotations anymore.")
+            )
+        if rfq.closing_date and rfq.closing_date < today:
+            raise ValidationError(_("The quotation deadline has already passed."))
+        vendor_quote = request.env['vendor.quote.history'].sudo().search([
+            ('vendor_id', '=', request.env.user.partner_id.id),
+            ('quote_id', '=', rfq.id),
+        ], limit=1)
+        values = {
             'vendor_id': request.env.user.partner_id.id,
-            'quoted_price': float(post.get('price')),
+            'quoted_price': quoted_price,
             'estimate_date': post.get('delivery_date'),
             'note': post.get('additional_note'),
-            'quote_id': post.get('rfq_id'),
-        })
-        return request.redirect('/my/vendor_rfq/%s' % (post.get('rfq_id')))
+            'quote_id': rfq.id,
+        }
+        if vendor_quote:
+            vendor_quote.write(values)
+        else:
+            request.env['vendor.quote.history'].sudo().create(values)
+        return request.redirect('/my/vendor_rfq/%s' % rfq.id)
